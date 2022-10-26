@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Disease</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <img class="img1"  src="https://user-images.githubusercontent.com/30645315/68544440-37ffdd80-03e9-11ea-8acd-3f3f9b6fc8b3.png" height="80" width="80">
+    <h1 >Leaf Disease Detector</h1>
+    {% if filename %}
+      <div class="container">
+          <div class="left-grid">
+            <img class="img2" height="200px" width="200px" src="{{ url_for('display_image', filename=filename) }}">
+          </div>
+          <div class="right-grid">
+            <p class="name">{{data.nam}}</p>
+            <p class="dis">{{data.dis}}</p>
+            <p class="remedyhead">Remedy</p>
+            {%for i in data.rem%}
+            <p class="remedy">{{i}}</p>
+            {% endfor %}
+          </div>
+      </div>
+    {% endif %}
+  </body>
+  </html>
+
+  <style>
+    .img1{
+      position: relative;
+      top: 10px;
+      left:34%;
+    }
+
+    .img2{
+        position: relative;
+        left: 12%;
+        top: 55px;
+    }
+    
+    h1{
+      color: green;
+      font-size: 40px;
+      position: relative;
+      bottom: 71px;
+      left: 39%;
+      
+    }
+
+    .container{
+       display: grid;
+       column-gap: 100px;
+        bottom: 40px;
+        box-sizing: border-box;
+        border: 1px solid ;
+        border-radius: 14px;
+        box-shadow: 5px 8px;
+        grid-template-columns: auto auto;
+    }
+
+    .left-grid {
+        grid-column: 1;
+        grid-row: 1/3;
+    }
+
+    .right-grid {
+        grid-row: 1/3;
+        grid-column: 2/3;
+        padding-right: 30px;
+    }
+
+    .name{
+        color: black;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .remedyhead{
+        color: black;
+        font-size: 20px;
+        text-decoration: underline;
+        padding: 30px 0px 15px 0px;
+    }
+
+    .remedy{
+        padding-bottom: 10px;
+    }
+
+ </style>
